@@ -1,24 +1,47 @@
 import java.io.PrintWriter;
 import java.io.IOException;
 
+/**
+	A classe GeradorDeRelatorios é a classe principal do sistema. Seu papel é processar
+	um array de Produtos e gerar uma listagem de produtos, seguindo certos critérios de ordenação
+	e filtragem.
+*/
+
 public class GeradorDeRelatorios {
 
+	//constantes estáticas que representam os identificadores dos algoritmos de ordenação InsertionSort e QuickSort 
 	public static final int ALG_INSERTIONSORT = 0;
 	public static final int ALG_QUICKSORT = 1;
 
+	//constantes estáticas que representam os identificadores dos critérios (descrição, preço e estoque) em ordem crescente
 	public static final int CRIT_DESC_CRESC = 0;
 	public static final int CRIT_PRECO_CRESC = 1;
 	public static final int CRIT_ESTOQUE_CRESC = 2;
 	
+	//constantes estáticas que representam os identificadores dos filtros (todos, estoque e categoria)
 	public static final int FILTRO_TODOS = 0;
 	public static final int FILTRO_ESTOQUE_MENOR_OU_IQUAL_A = 1;
 	public static final int FILTRO_CATEGORIA_IGUAL_A = 2;
-
+	
+	//========================= APAGAR DEPOIS ==========================================================================
 	// operador bit a bit "ou" pode ser usado para combinar mais de  
 	// um estilo de formatacao simultaneamente (veja exemplo no main)
+	//==================================================================================================
+
+	//constantes estáticas que representam os identificadores dos formatos (padrão, negrito e itálico)
 	public static final int FORMATO_PADRAO  = 0b0000;
 	public static final int FORMATO_NEGRITO = 0b0001;
 	public static final int FORMATO_ITALICO = 0b0010;
+	
+	/**
+		Construtor da classe GeradorDeRelatorios. 
+		@param produtos array de produtos.
+		@param algoritmo algoritmo de ordenação.
+		@param criterio critério de ordenação.
+		@param format_flags ?.===============================================
+		@param filtro critério de filtragem.
+		@param argFiltro ?.==================================================
+	*/
 
 	private Produto [] produtos;
 	private int algoritmo;
@@ -29,13 +52,7 @@ public class GeradorDeRelatorios {
 
 	public GeradorDeRelatorios(Produto [] produtos, int algoritmo, int criterio, int format_flags, int filtro, Object argFiltro){
 
-		this.produtos = new Produto[produtos.length];
-		
-		for(int i = 0; i < produtos.length; i++){
-		
-			this.produtos[i] = produtos[i];
-		}
-
+		this.produtos = produtos;
 		this.algoritmo = algoritmo;
 		this.criterio = criterio;
 		this.format_flags = format_flags;
@@ -43,6 +60,7 @@ public class GeradorDeRelatorios {
 		this.argFiltro = argFiltro;
 	}
 
+	//=======================================================================================
 	private int particiona(int ini, int fim){
 
 		Produto x = produtos[ini];
@@ -103,6 +121,7 @@ public class GeradorDeRelatorios {
 		}
 	}
 
+	//==============================================================================================
 	private void ordena(int ini, int fim){
 
 		if(algoritmo == ALG_INSERTIONSORT){
@@ -161,6 +180,11 @@ public class GeradorDeRelatorios {
 			throw new RuntimeException("Algoritmo invalido!");
 		}
 	}
+
+	/**
+		Método chamado para exportar o conteúdo HTML para um arquivo de saída. 
+		@param arquivoSaida nome do arquivo de saida.
+	*/
 	
 	public void geraRelatorio(String arquivoSaida) throws IOException {
 
@@ -235,6 +259,10 @@ public class GeradorDeRelatorios {
 
 		out.close();
 	}
+
+	/**
+		Método que retorna o array de produtos carregado. 
+	*/
 
 	public static Produto [] carregaProdutos(){
 
