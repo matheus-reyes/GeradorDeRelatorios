@@ -1,3 +1,6 @@
+package GeradorDeRelatorios;
+import GeradorDeRelatorios.InsertionSort.*;
+import GeradorDeRelatorios.QuickSort.*;
 import java.io.PrintWriter;
 import java.io.IOException;
 
@@ -22,11 +25,6 @@ public class GeradorDeRelatorios {
 	public static final int FILTRO_TODOS = 0;
 	public static final int FILTRO_ESTOQUE_MENOR_OU_IQUAL_A = 1;
 	public static final int FILTRO_CATEGORIA_IGUAL_A = 2;
-	
-	//========================= APAGAR DEPOIS ==========================================================================
-	// operador bit a bit "ou" pode ser usado para combinar mais de  
-	// um estilo de formatacao simultaneamente (veja exemplo no main)
-	//==================================================================================================
 
 	//constantes estáticas que representam os identificadores dos formatos (padrão, negrito e itálico)
 	public static final int FORMATO_PADRAO  = 0b0000;
@@ -188,7 +186,17 @@ public class GeradorDeRelatorios {
 	
 	public void geraRelatorio(String arquivoSaida) throws IOException {
 
-		ordena(0, produtos.length - 1);
+		if(algoritmo == ALG_INSERTIONSORT){
+
+			AlgoritmoOrdenacao insertionSort = new InsertionSort();
+			insertionSort.ordena(criterio, produtos, 0, produtos.length - 1);
+
+		} else if (algoritmo == ALG_QUICKSORT) {
+			
+			AlgoritmoOrdenacao quickSort = new QuickSort();
+			quickSort.ordena(criterio, produtos, 0, produtos.length - 1);
+
+		}
 
 		PrintWriter out = new PrintWriter(arquivoSaida);
 
