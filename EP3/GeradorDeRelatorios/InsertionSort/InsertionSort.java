@@ -8,17 +8,17 @@ public class InsertionSort implements AlgoritmoOrdenacao{
 		
 		if(criterio == GeradorDeRelatorios.CRIT_DESC_CRESC){
 
-			CriterioOrdenacao descricaoCrescente = new DescricaoCrescenteInsertionSort();
+			CriterioOrdenacaoInsertionSort descricaoCrescente = new DescricaoCrescenteInsertionSort();
 			descricaoCrescente.ordena(produtos, ini, fim);
 		
 		}else if(criterio == GeradorDeRelatorios.CRIT_PRECO_CRESC){
 
-			CriterioOrdenacao precoCrescente = new PrecoCrescenteInsertionSort();
+			CriterioOrdenacaoInsertionSort precoCrescente = new PrecoCrescenteInsertionSort();
 			precoCrescente.ordena(produtos, ini, fim);
 			
 		}else if(criterio == GeradorDeRelatorios.CRIT_ESTOQUE_CRESC){
 
-			CriterioOrdenacao estoqueCrescente = new QuantidadeEstoqueCrescenteInsertionSort();
+			CriterioOrdenacaoInsertionSort estoqueCrescente = new QuantidadeEstoqueCrescenteInsertionSort();
 			estoqueCrescente.ordena(produtos, ini, fim);
 			
 		}else{

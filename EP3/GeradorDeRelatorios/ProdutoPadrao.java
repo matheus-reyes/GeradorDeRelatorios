@@ -12,7 +12,6 @@ public class ProdutoPadrao implements Produto {
 	private double preco;
 
 	public ProdutoPadrao(int id, String descricao, String categoria, int qtdEstoque, double preco){
-
 		setId(id);
 		setDescricao(descricao);
 		setCategoria(categoria);

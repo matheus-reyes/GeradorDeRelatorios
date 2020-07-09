@@ -1,9 +1,10 @@
 package GeradorDeRelatorios.QuickSort;
 import GeradorDeRelatorios.*;
 
-public class DescricaoCrescenteQuickSort implements CriterioOrdenacao{
+public class DescricaoCrescenteQuickSort implements CriterioOrdenacaoQuickSort{
 
-    public void ordena(Produto[] produtos, int ini, int fim){
+	@Override
+    public int ordena(Produto[] produtos, int ini, int fim){
 
         Produto x = produtos[ini];
 		int i = (ini - 1);

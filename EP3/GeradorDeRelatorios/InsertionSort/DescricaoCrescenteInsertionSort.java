@@ -1,7 +1,7 @@
 package GeradorDeRelatorios.InsertionSort;
 import GeradorDeRelatorios.*;
 
-public class DescricaoCrescenteInsertionSort implements CriterioOrdenacao{
+public class DescricaoCrescenteInsertionSort implements CriterioOrdenacaoInsertionSort{
 
     public void ordena(Produto[] produtos, int ini, int fim){
 

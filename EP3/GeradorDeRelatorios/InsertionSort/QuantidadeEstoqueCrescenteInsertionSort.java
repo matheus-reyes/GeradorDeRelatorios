@@ -2,7 +2,7 @@ package GeradorDeRelatorios.InsertionSort;
 import GeradorDeRelatorios.*;
 
 
-public class QuantidadeEstoqueCrescenteInsertionSort implements CriterioOrdenacao{
+public class QuantidadeEstoqueCrescenteInsertionSort implements CriterioOrdenacaoInsertionSort{
     
     public void ordena(Produto[] produtos, int ini, int fim){
 
