@@ -162,16 +162,8 @@ public class GeradorDeRelatorios {
 
 		GeradorDeRelatorios gdr;
 
-		// public static final int FORMATO_PADRAO  = 0b0000;
-		// public static final int FORMATO_NEGRITO = 0b0001;
-		// public static final int FORMATO_ITALICO = 0b0010;
-
-		// public static final int FILTRO_TODOS = 0;
-		// public static final int FILTRO_ESTOQUE_MENOR_OU_IQUAL_A = 1;
-		// public static final int FILTRO_CATEGORIA_IGUAL_A = 2;
-
 		gdr = new GeradorDeRelatorios(	produtos, ALG_QUICKSORT, CRIT_ESTOQUE_CRESC, 
-						FORMATO_ITALICO, 
+						FORMATO_PADRAO, 
 						//FILTRO_ESTOQUE_MENOR_OU_IQUAL_A, 100);
 						FILTRO_ESTOQUE_MENOR_OU_IQUAL_A, 15);
 		

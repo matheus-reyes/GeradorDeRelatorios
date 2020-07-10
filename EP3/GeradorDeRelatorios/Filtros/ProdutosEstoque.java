@@ -15,33 +15,8 @@ public class ProdutosEstoque implements Filtro{
 
 			if(p.getQtdEstoque() <= (Integer) argFiltro){
 
-				out.print("<li>");
+				defineFormatacao(out, format_flags, p);
 
-				if((format_flags & GeradorDeRelatorios.FORMATO_ITALICO) > 0){
-					
-					out.print("<span style=\"font-style:italic\"> " + p.formataParaImpressao() + " </span>");
-				
-				} else if((format_flags & GeradorDeRelatorios.FORMATO_NEGRITO) > 0){
-
-					out.print("<span style=\"font-weight:bold\"> " + p.formataParaImpressao() + " </span>");
-				
-				} else{
-					
-					out.print(p.formataParaImpressao());
-				}
-			
-
-				// if((format_flags & GeradorDeRelatorios.FORMATO_NEGRITO) > 0){
-
-				// 	out.print("</span>");
-				// } 
-
-				// if((format_flags & GeradorDeRelatorios.FORMATO_ITALICO) > 0){
-
-				// 	out.print("</span>");
-				// }
-
-				out.println("</li>");
 				count++;
 			}
         }
