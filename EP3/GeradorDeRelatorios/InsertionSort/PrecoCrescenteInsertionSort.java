@@ -4,8 +4,10 @@ import GeradorDeRelatorios.*;
 
 public class PrecoCrescenteInsertionSort implements CriterioOrdenacaoInsertionSort{
     
+    @Override
     public void ordena(Produto[] produtos, int ini, int fim){
 
+        //Percorre o array de produtos nas posições ini e fim
         for(int i = ini; i <= fim; i++){
 
             Produto x = produtos[i];				
@@ -13,6 +15,7 @@ public class PrecoCrescenteInsertionSort implements CriterioOrdenacaoInsertionSo
 
             while(j >= ini){
 
+                //Ordena os produtos levando em consideração o preço em ordem crescente
                 if(x.getPreco() < produtos[j].getPreco()){
     
                     produtos[j + 1] = produtos[j];

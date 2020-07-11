@@ -22,11 +22,18 @@ public class GeradorDeRelatorios {
 	public static final int CRIT_PRECO_CRESC = 1;
 	public static final int CRIT_ESTOQUE_CRESC = 2;
 	
+	public static final int CRIT_DESC_DECRESC = 3;
+	public static final int CRIT_PRECO_DECRESC = 4;
+	public static final int CRIT_ESTOQUE_DECRESC = 5;
+	
+	
 	//constantes estáticas que representam os identificadores dos filtros (todos, estoque e categoria)
 	public static final int FILTRO_TODOS = 0;
 	public static final int FILTRO_ESTOQUE_MENOR_OU_IQUAL_A = 1;
 	public static final int FILTRO_CATEGORIA_IGUAL_A = 2;
-
+	public static final int FILTRO_PRECO_INTERVALO = 3;
+	public static final int FILTRO_DESCRICAO_CONTEM = 4;
+	
 	//constantes estáticas que representam os identificadores dos formatos (padrão, negrito e itálico)
 	public static final int FORMATO_PADRAO  = 0b0000;
 	public static final int FORMATO_NEGRITO = 0b0001;
@@ -103,6 +110,19 @@ public class GeradorDeRelatorios {
 			Filtro categoria = new ProdutosCategoria();
 			count = categoria.filtrar(out, argFiltro, produtos, format_flags);
 
+		}else if(filtro == FILTRO_PRECO_INTERVALO){
+			
+			Filtro preco = new ProdutosPreco();
+			count = preco.filtrar(out, argFiltro, produtos, format_flags);
+
+		}else if(filtro == FILTRO_DESCRICAO_CONTEM){
+
+			Filtro descricao = new ProdutosDescricao();
+			count = descricao.filtrar(out, argFiltro, produtos, format_flags);
+
+		}else{
+
+			throw new RuntimeException("Filtro invalido!");
 		}
 
 		out.println("</ul>");
@@ -162,10 +182,8 @@ public class GeradorDeRelatorios {
 
 		GeradorDeRelatorios gdr;
 
-		gdr = new GeradorDeRelatorios(	produtos, ALG_QUICKSORT, CRIT_ESTOQUE_CRESC, 
-						FORMATO_PADRAO, 
-						//FILTRO_ESTOQUE_MENOR_OU_IQUAL_A, 100);
-						FILTRO_ESTOQUE_MENOR_OU_IQUAL_A, 15);
+		gdr = new GeradorDeRelatorios(produtos, ALG_QUICKSORT, CRIT_PRECO_CRESC, 
+						FORMATO_PADRAO, FILTRO_DESCRICAO_CONTEM, "neuromancer");
 		
 		try{
 			gdr.geraRelatorio("saida.html");

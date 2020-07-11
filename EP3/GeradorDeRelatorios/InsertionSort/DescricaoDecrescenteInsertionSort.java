@@ -3,9 +3,10 @@ import GeradorDeRelatorios.*;
 
 public class DescricaoDecrescenteInsertionSort implements CriterioOrdenacaoInsertionSort{
     
-    //Método do Decricao Crescente
+    @Override
     public void ordena(Produto[] produtos, int ini, int fim){
 
+        //Percorre o array de produtos nas posições ini e fim
         for(int i = ini; i <= fim; i++){
 
             Produto x = produtos[i];				
@@ -13,7 +14,8 @@ public class DescricaoDecrescenteInsertionSort implements CriterioOrdenacaoInser
 
             while(j >= ini){
 
-                if( x.getDescricao().compareToIgnoreCase(produtos[j].getDescricao()) < 0 ){
+                //Compara a descrição do produto, desconsiderando diferenças entre maiúsculas e minúsculas, e as posiciona de forma crescente
+                if( x.getDescricao().compareToIgnoreCase(produtos[j].getDescricao()) > 0 ){
     
                     produtos[j + 1] = produtos[j];
                     j--;

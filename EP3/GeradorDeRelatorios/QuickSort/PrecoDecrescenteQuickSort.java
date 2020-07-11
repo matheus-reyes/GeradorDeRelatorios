@@ -1,10 +1,10 @@
 package GeradorDeRelatorios.QuickSort;
 import GeradorDeRelatorios.*;
 
-public class DescricaoCrescenteQuickSort implements CriterioOrdenacaoQuickSort{
-
-	//Metodo que ordena o vetor de produtos em ordem crescente de acordo com a descricao dos mesmos
-	@Override
+public class PrecoDecrescenteQuickSort implements CriterioOrdenacaoQuickSort{
+    
+    //Preço decrescente
+    @Override
     public int ordena(Produto[] produtos, int ini, int fim){
 
         Produto x = produtos[ini];
@@ -16,13 +16,13 @@ public class DescricaoCrescenteQuickSort implements CriterioOrdenacaoQuickSort{
 			do{ 
 				j--;
 
-			} while(produtos[j].getDescricao().compareToIgnoreCase(x.getDescricao()) > 0);
+			} while(produtos[j].getPreco() < x.getPreco());
 		
 			do{
 				i++;
 
-			} while(produtos[i].getDescricao().compareToIgnoreCase(x.getDescricao()) < 0);
-				
+			} while(produtos[i].getPreco() > x.getPreco());
+		
 			if(i < j){
 				Produto temp = produtos[i];
 				produtos[i] = produtos[j]; 				
@@ -30,5 +30,7 @@ public class DescricaoCrescenteQuickSort implements CriterioOrdenacaoQuickSort{
 			}
 			else return j;
 		}
+
     }
+
 }

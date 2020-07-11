@@ -3,9 +3,10 @@ import GeradorDeRelatorios.*;
 
 public class QuantidadeEstoqueDecrescenteInsertionSort implements CriterioOrdenacaoInsertionSort{
     
-    //Método quantidade estoque crescente
+    @Override
     public void ordena(Produto[] produtos, int ini, int fim){
 
+        //Percorre o Array de produtos nas posições ini e fim
         for(int i = ini; i <= fim; i++){
 
             Produto x = produtos[i];				
@@ -13,7 +14,8 @@ public class QuantidadeEstoqueDecrescenteInsertionSort implements CriterioOrdena
 
             while(j >= ini){
 
-                if(x.getQtdEstoque() < produtos[j].getQtdEstoque()){
+                //Ordena o array de produtos levando em consideração a quantidade em estoque de forma decrescente
+                if(x.getQtdEstoque() > produtos[j].getQtdEstoque()){
     
                     produtos[j + 1] = produtos[j];
                     j--;

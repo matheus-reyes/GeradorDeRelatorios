@@ -2,18 +2,12 @@ package GeradorDeRelatorios.Filtros;
 import GeradorDeRelatorios.*;
 import java.io.PrintWriter;
 
-public class ProdutosCategoria implements Filtro{
-
-    /**
-        Método que filtra por Categoria
-		@param out arquivo de saída.
-		@param argFiltro argumento que será utilizado para o filtro.
-		@param produtos array de produtos.
-		@param format_flags tipos de formatação (negrito, itálico ou nenhum).
-	*/
-
+public class ProdutosPreco implements Filtro{
+    
     @Override
     public int filtrar(PrintWriter out, Object argFiltro, Produto[] produtos, int format_flags){
+        String filtro = (String) argFiltro;
+        String[] precos = filtro.split(",");
 
         int count = 0;
 
@@ -21,7 +15,7 @@ public class ProdutosCategoria implements Filtro{
 
 			Produto p = produtos[i];
 
-			if(p.getCategoria().equalsIgnoreCase((String)argFiltro)){
+			if(p.getPreco() >= Double.parseDouble(precos[0]) && p.getPreco() <= Double.parseDouble(precos[1])){
 
 				defineFormatacao(out, format_flags, p);
 
@@ -31,4 +25,5 @@ public class ProdutosCategoria implements Filtro{
         
         return count;
     }
+    
 }
