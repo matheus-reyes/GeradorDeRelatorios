@@ -15,6 +15,7 @@ public class ProdutosPreco implements Filtro{
 
 			Produto p = produtos[i];
 
+			//Filtra os produtos que contém o intervalo de preço especificado
 			if(p.getPreco() >= Double.parseDouble(precos[0]) && p.getPreco() <= Double.parseDouble(precos[1])){
 
 				defineFormatacao(out, format_flags, p);

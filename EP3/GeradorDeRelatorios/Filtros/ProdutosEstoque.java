@@ -13,6 +13,7 @@ public class ProdutosEstoque implements Filtro{
 
 			Produto p = produtos[i];
 
+			//Filtra os produtos que contém a quantidade de estoque especificada
 			if(p.getQtdEstoque() <= (Integer) argFiltro){
 
 				defineFormatacao(out, format_flags, p);

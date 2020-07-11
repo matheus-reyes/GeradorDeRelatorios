@@ -3,6 +3,8 @@ import GeradorDeRelatorios.*;
 
 public class QuantidadeEstoqueCrescenteQuickSort implements CriterioOrdenacaoQuickSort{
 	
+	//Metodo que ordena o vetor de produtos em ordem crescente de acordo com o estoque dos mesmos
+
 	@Override
     public int ordena(Produto[] produtos, int ini, int fim){
 

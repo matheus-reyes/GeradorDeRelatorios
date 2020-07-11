@@ -4,14 +4,6 @@ import java.io.PrintWriter;
 
 public class ProdutosCategoria implements Filtro{
 
-    /**
-        Método que filtra por Categoria
-		@param out arquivo de saída.
-		@param argFiltro argumento que será utilizado para o filtro.
-		@param produtos array de produtos.
-		@param format_flags tipos de formatação (negrito, itálico ou nenhum).
-	*/
-
     @Override
     public int filtrar(PrintWriter out, Object argFiltro, Produto[] produtos, int format_flags){
 
@@ -21,6 +13,7 @@ public class ProdutosCategoria implements Filtro{
 
 			Produto p = produtos[i];
 
+			//Filtra os produtos que contém a categoria especificada
 			if(p.getCategoria().equalsIgnoreCase((String)argFiltro)){
 
 				defineFormatacao(out, format_flags, p);

@@ -12,6 +12,7 @@ public class ProdutosDescricao implements Filtro{
 
 			Produto p = produtos[i];
 
+			//Filtra os produtos que contém a descrição especificada
 			if(p.getDescricao().toLowerCase().contains((String)argFiltro)){
 
 				defineFormatacao(out, format_flags, p);

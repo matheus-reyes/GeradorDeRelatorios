@@ -3,6 +3,11 @@ package GeradorDeRelatorios;
 public class ProdutoFormatacao {
     
     private ProdutoPadrao produto;
+
+    /**
+        Método que formata o texto do produto
+		@param format_flags código da formatação.
+	*/
     
     public String formataParaImpressao(int format_flags){
 
