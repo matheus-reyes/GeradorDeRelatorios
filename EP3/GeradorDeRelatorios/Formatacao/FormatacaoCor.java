@@ -1,14 +1,16 @@
 package GeradorDeRelatorios.Formatacao;
 import GeradorDeRelatorios.*;
 
-public class FormatacaoItalico implements Produto{
-
-    private Produto produto;
-
-    public FormatacaoItalico(Produto produto){       
-        this.produto = produto;    
-    }
+public class FormatacaoCor implements Produto{
     
+    private Produto produto;
+    private String cor;
+
+    public FormatacaoCor(Produto produto, String cor){
+        this.produto = produto;
+        this.cor = cor;
+    }
+
     public void setQtdEstoque(int qtdEstoque){
         this.produto.setQtdEstoque(qtdEstoque);
     }
@@ -41,9 +43,9 @@ public class FormatacaoItalico implements Produto{
     public String formataParaImpressao(){
 
         String formatoPadrao = produto.formataParaImpressao();
-		
-        return "<span style=\"font-style:italic\"> " + formatoPadrao + " </span>";
 
+        return "<span style=\"color:"+this.cor+"\"> " + formatoPadrao + " </span>";
+        
     }
 
 }

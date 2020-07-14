@@ -2,6 +2,7 @@ package GeradorDeRelatorios;
 import GeradorDeRelatorios.InsertionSort.*;
 import GeradorDeRelatorios.QuickSort.*;
 import GeradorDeRelatorios.Filtros.*;
+import GeradorDeRelatorios.Formatacao.*;
 import java.io.PrintWriter;
 import java.io.IOException;
 
@@ -174,6 +175,7 @@ public class GeradorDeRelatorios {
 			new ProdutoPadrao(31, "The Art of Computer Programming Vol. 2", "Livros", 2, 200.00),
 			new ProdutoPadrao(32, "The Art of Computer Programming Vol. 3", "Livros", 4, 270.00)
 		};
+
 	} 
 
 	public static void main(String [] args) {
@@ -183,7 +185,11 @@ public class GeradorDeRelatorios {
 		GeradorDeRelatorios gdr;
 
 		gdr = new GeradorDeRelatorios(produtos, ALG_QUICKSORT, CRIT_PRECO_CRESC, 
-						FORMATO_PADRAO, FILTRO_DESCRICAO_CONTEM, "neuromancer");
+						FORMATO_PADRAO, FILTRO_TODOS, "");
+		produtos[8] = new FormatacaoNegrito(produtos[8]); // aplica negrito à instância que ocupa o índice 8
+		produtos[15] = new FormatacaoItalico(produtos[15]); // aplica itálico à instância que ocupa o índice 15
+		produtos[21] = new FormatacaoNegrito(new FormatacaoCor(produtos[21], "green")); // negrito + cor verde ao produto no índice 21
+		produtos[29] = new FormatacaoItalico(new FormatacaoCor(produtos[29], "red")); // italico + cor vermelha ao produto no índice 29
 		
 		try{
 			gdr.geraRelatorio("saida.html");
